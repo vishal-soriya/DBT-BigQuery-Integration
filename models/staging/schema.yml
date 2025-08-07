@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: stg_employees
+    description: "Staging table for employee data"
+    columns:
+      - name: employee_id
+        description: "Unique identifier for each employee"
+        tests:
+          - unique
+          - not_null
+      - name: employee_name
+        description: "Full name of the employee"
+        tests:
+          - not_null
+      - name: department_id
+        description: "Foreign key to department table"
+        tests:
+          - not_null
+
+  - name: stg_departments
+    description: "Staging table for department data"
+    columns:
+      - name: department_id
+        description: "Unique identifier for each department"
+        tests:
+          - unique
+          - not_null
+      - name: department_name
+        description: "Name of the department"
+        tests:
+          - not_null
+          - unique

@@ -1,0 +1,7 @@
+# DBT with BigQuery adapter
+dbt-bigquery==1.7.4
+
+# Additional useful packages
+pandas==2.1.4
+google-cloud-bigquery==3.13.0
+google-auth==2.24.0

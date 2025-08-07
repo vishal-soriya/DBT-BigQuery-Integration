@@ -1,0 +1,22 @@
+bq_dbt_project:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: gen-lang-client-0522732935  # Replace with your GCP project ID
+      dataset: DBT_VISHAL_DATASET  # Replace with your BigQuery dataset
+      threads: 4
+      timeout_seconds: 300
+      location: northamerica-northeast1  # Replace with your BigQuery location if different
+      keyfile: ./dbt-bq-service-key.json  # Path to your service account key file
+      
+    prod:
+      type: bigquery
+      method: service-account
+      project: gen-lang-client-0522732935  # Replace with your GCP project ID
+      dataset: dbt_prod  # Replace with your BigQuery dataset
+      threads: 4
+      timeout_seconds: 300
+      location: northamerica-northeast1  # Replace with your BigQuery location if different
+      keyfile: ./dbt-bq-service-key.json  # Path to your service account key file

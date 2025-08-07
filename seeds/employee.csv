@@ -1,0 +1,16 @@
+employee_id,name,location,designation,department_id
+1,John Smith,New York,Software Engineer,1
+2,Sarah Johnson,San Francisco,Senior Data Analyst,2
+3,Michael Brown,Chicago,Marketing Manager,3
+4,Emily Davis,Boston,HR Specialist,4
+5,David Wilson,Seattle,DevOps Engineer,1
+6,Jessica Miller,Austin,Product Manager,5
+7,Christopher Taylor,Denver,Financial Analyst,6
+8,Amanda Anderson,Miami,UX Designer,5
+9,James Thomas,Portland,Sales Representative,7
+10,Jennifer White,San Diego,Data Scientist,2
+11,Robert Harris,Phoenix,Software Architect,1
+12,Lisa Martin,Atlanta,Content Writer,3
+13,Kevin Thompson,Las Vegas,Quality Assurance,1
+14,Michelle Garcia,Detroit,Business Analyst,2
+15,Ryan Rodriguez,Houston,Operations Manager,8
