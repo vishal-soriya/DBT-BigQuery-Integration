@@ -1,22 +1,65 @@
 bq_dbt_project:
-  target: dev
+  target: client_a_dev  # Default target
   outputs:
+    # Client A Environments
+    client_a_dev:
+      type: bigquery
+      method: service-account
+      project: gen-lang-client-0522732935
+      dataset: DBT_VISHAL_DATASET
+      threads: 4
+      timeout_seconds: 300
+      location: northamerica-northeast1
+      keyfile: ./dbt-bq-service-key.json
+      
+    client_a_prod:
+      type: bigquery
+      method: service-account
+      project: gen-lang-client-0522732935
+      dataset: DBT_VISHAL_DATASET_PROD
+      threads: 4
+      timeout_seconds: 300
+      location: northamerica-northeast1
+      keyfile: ./dbt-bq-service-key.json
+      
+    # Client B Environments  
+    client_b_dev:
+      type: bigquery
+      method: service-account
+      project: gen-lang-client-0522732935
+      dataset: DBT_client_b_DATASET
+      threads: 4
+      timeout_seconds: 300
+      location: northamerica-northeast1
+      keyfile: ./dbt-bq-service-key.json
+      
+    client_b_prod:
+      type: bigquery
+      method: service-account
+      project: gen-lang-client-0522732935
+      dataset: DBT_client_b_DATASET_PROD
+      threads: 4
+      timeout_seconds: 300
+      location: northamerica-northeast1
+      keyfile: ./dbt-bq-service-key.json
+
+    # Legacy targets (for backward compatibility)
     dev:
       type: bigquery
       method: service-account
-      project: gen-lang-client-0522732935  # Replace with your GCP project ID
-      dataset: DBT_VISHAL_DATASET  # Replace with your BigQuery dataset
+      project: gen-lang-client-0522732935
+      dataset: DBT_VISHAL_DATASET
       threads: 4
       timeout_seconds: 300
-      location: northamerica-northeast1  # Replace with your BigQuery location if different
-      keyfile: ./dbt-bq-service-key.json  # Path to your service account key file
+      location: northamerica-northeast1
+      keyfile: ./dbt-bq-service-key.json
       
     prod:
       type: bigquery
       method: service-account
-      project: gen-lang-client-0522732935  # Replace with your GCP project ID
-      dataset: dbt_prod  # Replace with your BigQuery dataset
+      project: gen-lang-client-0522732935
+      dataset: dbt_prod
       threads: 4
       timeout_seconds: 300
-      location: northamerica-northeast1  # Replace with your BigQuery location if different
-      keyfile: ./dbt-bq-service-key.json  # Path to your service account key file
+      location: northamerica-northeast1
+      keyfile: ./dbt-bq-service-key.json

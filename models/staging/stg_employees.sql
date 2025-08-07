@@ -5,9 +5,10 @@
 
 select
     employee_id,
-    name as employee_name,
+    {{ apply_client_specific_transformations('name') }},
     location,
     designation,
     department_id,
-    current_timestamp() as _loaded_at
+    -- Add audit columns using our macro
+    {{ add_audit_columns(get_client_from_target()) }}
 from {{ ref('employee') }}
