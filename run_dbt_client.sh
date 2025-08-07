@@ -69,9 +69,6 @@ fi
 # Set target based on client and environment
 TARGET="${CLIENT}_${ENVIRONMENT}"
 
-# Set client ID for variables
-export DBT_CLIENT_ID=$CLIENT
-
 echo -e "${GREEN}Running DBT for:${NC}"
 echo -e "  Client: ${YELLOW}$CLIENT${NC}"
 echo -e "  Environment: ${YELLOW}$ENVIRONMENT${NC}"

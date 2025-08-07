@@ -8,20 +8,6 @@ config-version: 2
 # This setting configures which "profile" dbt uses for this project.
 profile: 'bq_dbt_project'
 
-# Variables for multi-client support
-vars:
-  # Default client configuration (Client A)
-  client_name: "client_a"
-  client_id: "{{ env_var('DBT_CLIENT_ID', 'client_a') }}"
-  
-  # Client-specific configurations
-  client_a:
-    dataset_suffix: ""
-    table_prefix: "client_a_"
-  client_b:
-    dataset_suffix: ""
-    table_prefix: "client_b_"
-
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
