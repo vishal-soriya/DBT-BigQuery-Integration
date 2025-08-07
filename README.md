@@ -1,4 +1,4 @@
-# DBT BigQuery Project
+# DBT-BigQuery-Integration
 
 This is an open-source formatted DBT project that connects with Google BigQuery using service account authentication and runs transformation commands on sample employee and department data.
 
