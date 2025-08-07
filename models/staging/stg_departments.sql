@@ -5,8 +5,9 @@
 
 select
     department_id,
-    name as department_name,
+    {{ apply_client_specific_transformations('name') }} as department_name,
     total_employees,
     description,
-    current_timestamp() as _loaded_at
+    -- Add audit columns using our macro
+    {{ add_audit_columns(get_client_from_target()) }}
 from {{ ref('department') }}
