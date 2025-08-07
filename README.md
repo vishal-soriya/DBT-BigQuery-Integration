@@ -2,28 +2,60 @@
 
 This is an open-source formatted DBT project that connects with Google BigQuery using service account authentication and runs transformation commands on sample employee and department data.
 
+## 🚀 Multi-Client Support
+
+This project is configured for **multi-tenancy**, allowing you to run the same transformations for different clients with separate BigQuery datasets:
+
+- **Client A**: `DBT_VISHAL_DATASET`
+- **Client B**: `DBT_client_b_DATASET`
+
+**Quick Start for Multi-Client:**
+```bash
+# Run for Client A
+./run_dbt_client.sh client_a dev run
+
+# Run for Client B  
+./run_dbt_client.sh client_b dev build
+
+# Test connections
+./run_dbt_client.sh client_a dev debug
+./run_dbt_client.sh client_b dev debug
+
+# Load seed data
+./run_dbt_client.sh client_a dev seed
+./run_dbt_client.sh client_b dev seed
+
+# Run specific models
+./run_dbt_client.sh client_a dev run --select employee_details
+```
+
+📖 **[Complete Multi-Client Guide](MULTI_CLIENT_GUIDE.md)**
+
 ## Project Structure
 
 ```
 BQ-DBT/
-├── dbt_project.yml          # DBT project configuration
-├── profiles.yml             # Database connection profiles
-├── requirements.txt         # Python dependencies
-├── seeds/                   # CSV files for seeding data
-│   ├── employee.csv         # Sample employee data
-│   └── department.csv       # Sample department data
-├── models/                  # DBT models
-│   ├── staging/             # Staging models (views)
+├── dbt_project.yml              # DBT project configuration
+├── profiles.yml                 # Database connection profiles  
+├── requirements.txt             # Python dependencies
+├── run_dbt_client.sh           # Multi-client runner script
+├── run_dbt_client.ps1          # PowerShell version for Windows
+├── MULTI_CLIENT_GUIDE.md       # Complete multi-client documentation
+├── seeds/                       # CSV files for seeding data
+│   ├── employee.csv             # Sample employee data
+│   └── department.csv           # Sample department data
+├── models/                      # DBT models
+│   ├── staging/                 # Staging models (views)
 │   │   ├── stg_employees.sql
 │   │   ├── stg_departments.sql
 │   │   └── schema.yml
-│   └── marts/               # Business-ready models (tables)
+│   └── marts/                   # Business-ready models (tables)
 │       ├── employee_details.sql
 │       └── schema.yml
-├── macros/                  # Reusable DBT macros
-├── tests/                   # Custom tests
-├── analyses/                # Analytical queries
-└── snapshots/              # DBT snapshots
+├── macros/                      # Reusable DBT macros
+├── tests/                       # Custom tests
+├── analyses/                    # Analytical queries
+└── snapshots/                   # DBT snapshots
 ```
 
 ## Prerequisites
