@@ -8,6 +8,12 @@ logs/
 **/client_*_target/
 **/client_*_logs/
 
+# Airflow
+airflow/logs/
+airflow/.env
+airflow/postgres-db-volume/
+.airflowignore
+
 # Service Account Key (NEVER commit this!)
 dbt-bq-service-key.json
 *.json

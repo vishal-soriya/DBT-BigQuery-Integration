@@ -5,7 +5,7 @@
 
 select
     employee_id,
-    {{ apply_client_specific_transformations('name') }},
+    {{ apply_client_specific_transformations('name') }} as employee_name,
     location,
     designation,
     department_id,

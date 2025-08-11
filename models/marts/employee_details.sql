@@ -13,7 +13,10 @@ with employee_with_department as (
         d.department_name,
         d.description as department_description,
         d.total_employees as department_total_employees,
-        e._loaded_at
+        e._dbt_loaded_at,
+        e._client_name,
+        e._environment,
+        e._dbt_version
     from {{ ref('stg_employees') }} e
     left join {{ ref('stg_departments') }} d
         on e.department_id = d.department_id

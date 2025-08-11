@@ -29,7 +29,27 @@ This project is configured for **multi-tenancy**, allowing you to run the same t
 ./run_dbt_client.sh client_a dev run --select employee_details
 ```
 
-📖 **[Complete Multi-Client Guide](MULTI_CLIENT_GUIDE.md)**
+📖 **[Complete Multi-Client Guide](MULTI_CLIENT_GUIDE.md)**  
+🚀 **[Airflow Setup Guide](airflow/README.md)**
+
+## 🔄 Airflow Integration
+
+This project includes Apache Airflow setup for orchestrating DBT workflows:
+
+```bash
+# Setup Airflow
+cd airflow
+./airflow.sh init
+./airflow.sh start
+
+# Access Web UI: http://localhost:8080
+# Username: airflow | Password: airflow
+```
+
+**Available DAGs:**
+- `dbt_multi_client_transformations` - Sequential client processing
+- `dbt_multi_client_parallel` - Parallel client processing  
+- `dbt_production_deployment` - Production deployment with quality checks
 
 ## Project Structure
 

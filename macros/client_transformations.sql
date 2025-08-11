@@ -20,10 +20,10 @@
     
     {% if client == 'client_a' %}
         {#- Client A wants all names in uppercase -#}
-        upper({{ column_name }}) as {{ column_name }}
+        upper({{ column_name }})
     {% elif client == 'client_b' %}
         {#- Client B wants proper case (title case) -#}
-        initcap({{ column_name }}) as {{ column_name }}
+        initcap({{ column_name }})
     {% else %}
         {#- Default: no transformation -#}
         {{ column_name }}
